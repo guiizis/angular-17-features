@@ -1,0 +1,65 @@
+@if(isTrue) {
+<h3>
+  feature if else (true)
+</h3>
+}
+@else if( 1 === 1) {
+<p>isso é um teste de if else</p>
+}
+@else {
+<h3>
+  feature if else (false)
+</h3>
+}
+
+@switch(status) {
+@case('normal') {
+<div>isso é um teste para de switch (normal)</div>
+}
+@case('finalizado') {
+<div>isso é um teste de switch (finalizado)</div>
+}
+@default {
+<div>parece que caiu no default</div>
+}
+}
+
+@for(user of users; track user.id) {
+@if(user.id === 3) {
+<p>não vou mostrar esse user </p>
+}
+@else {
+<p>{{user.name}} tem o id: {{user.id}}</p>
+}
+}
+
+<p>teste de for loop com async</p>
+
+@for(number of numbers$ | async; track $index) {
+<p>esse numero foi carregado atraves de um pipe async {{number}}</p>
+
+}@empty {
+<p>isso vai ser renderizado quando a lista estiver vazia</p>
+}
+
+@for(empty of emptyList; track $index) {
+<p>tais vazio ???</p>
+}@empty {
+<p class="red">isso vai ser renderizado quando a lista estiver vazia</p>
+}
+
+<h3>testando defer</h3>
+
+@defer(on viewport) {
+<app-new-component name='test filme'></app-new-component>
+}
+@placeholder {
+  <p>esta feature está carregando</p>
+}
+
+@defer(when onDemand === true) {
+<app-new-component name='esse filme vai ser carregado sob demanda' />
+}
+@placeholder {
+  <p>esta feature está carregando sob demanda, aguarde</p>
+}
