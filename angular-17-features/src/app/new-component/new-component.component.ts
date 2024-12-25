@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { booleanAttribute, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-component',
@@ -9,4 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class NewComponentComponent {
   @Input({required: true}) name = 'teste'
+
+  @Input({transform: booleanAttribute})
+  disabled = false
 }
